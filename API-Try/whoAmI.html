@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Who Am I?</title>
+</head>
+
+<body>
+    <h1 id="user-name" style="text-align: center"></h1>
+    <script>
+        function myIdentity() {
+            fetch('https://randomuser.me/api')
+                .then(respons => respons.json())
+                .then(data => {
+                    const user = data.results[0];
+                    const name = user.name;
+                    const userName = `${name.title} ${name.first} ${name.last}`;
+                    document.getElementById('user-name').innerText = userName;
+                })
+        }
+        myIdentity();
+        setInterval(() => {
+            myIdentity();
+        }, 60000);
+
+    </script>
+</body>
+
+</html>

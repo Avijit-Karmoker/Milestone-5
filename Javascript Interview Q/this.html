@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>This</title>
+</head>
+
+<body>
+    <h1>This is not confused any more.</h1>
+    <p onclick="add(12, 13)">Don't clicked me.</p>
+
+    <script>
+        const myObj = {
+            name: 'kuddus Ali';
+            getFullName: function() {
+                console.log(this);
+                return 'Mr. ' + this.name;
+            }
+        }
+
+        //        myObj.getFullName();
+        const anotherObj = {
+            name: 'Biddut Ali'
+        }
+
+        //        anotherObj.getFullName = myObj.getFullName;
+        //        console.log(anotherObj.getFullName);
+        //        
+        //        myObj.getFullName();
+        //        anotherObj.getFullName();
+
+        function add(a, b) {
+            console.log(this);
+            return a + b;
+        }
+        //        add(12, 13);
+
+        anotherObj.sum = add;
+        anotherObj.sum();
+
+        setTimeout(function() {
+            console.log(this);
+        }, 1000)
+
+    </script>
+</body>
+
+</html>
